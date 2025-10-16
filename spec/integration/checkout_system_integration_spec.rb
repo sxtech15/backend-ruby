@@ -29,7 +29,7 @@ RSpec.describe 'Checkout System Integration' do
       # Bananas: half price
       checkout.scan(:banana)
       
-      # Pineapples: half price limited to 3
+      # Pineapples: first item half price, rest full price
       checkout.scan(:pineapple)
       checkout.scan(:pineapple)
       
@@ -42,8 +42,8 @@ RSpec.describe 'Checkout System Integration' do
       # Oranges: no discount
       checkout.scan(:orange)
       
-      # Expected: 1*10 + 1*15 + 1*15 + 2*50 + 3*200 + 1*20 = 10+15+15+100+600+20 = 760
-      expect(checkout.total).to eq(760)
+      # Expected: 1*10 + 1*15 + 1*15 + 1*50+1*100 + 3*200 + 1*20 = 10+15+15+150+600+20 = 810
+      expect(checkout.total).to eq(810)
     end
 
     it 'provides detailed basket summary' do

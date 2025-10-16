@@ -49,12 +49,12 @@ RSpec.describe 'Discount Strategies' do
   describe HalfPriceLimitedDiscount do
     subject(:strategy) { HalfPriceLimitedDiscount.new(:item, price) }
 
-    it 'charges half price for first 3 items' do
-      expect(strategy.calculate_total(3)).to eq(150)
+    it 'charges half price for first item, full price for rest' do
+      expect(strategy.calculate_total(1)).to eq(50) # 1*50
     end
 
-    it 'charges half price for first 3, full price for rest' do
-      expect(strategy.calculate_total(5)).to eq(350) # 3*50 + 2*100
+    it 'charges half price for first item, full price for remaining' do
+      expect(strategy.calculate_total(3)).to eq(250) # 1*50 + 2*100
     end
   end
 

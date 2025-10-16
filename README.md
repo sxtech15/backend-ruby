@@ -1,4 +1,4 @@
-# Checkout System - Refactored Architecture
+# Checkout System - Architecture
 
 ## Overview
 
@@ -53,11 +53,3 @@ checkout = Checkout.new(pricing_rules, custom_database)
 ```bash
 bundle exec rspec
 ```
-
-## Requirements Fulfilled
-
-✅ Buy 3 get 1 free on Mangos  
-✅ Dynamic discount specification from database  
-✅ Refactored code to apply discounts from database  
-✅ Maintainable architecture with SOLID principles  
-✅ Comprehensive test coverage
